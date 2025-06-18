@@ -1,0 +1,37 @@
+[project]
+name = "ld-znet"
+version = "0.1.0"
+description = ""
+readme = "README.md"
+requires-python = ">=3.10,<3.11"
+dependencies = [
+  "clip",
+  "einops==0.3.0",
+  "kornia==0.6.7",
+  "matplotlib>=3",
+  "numpy<2",
+  "omegaconf>=2",
+  "opencv-python>=4.11.0.86",
+  "pillow",
+  "pytorch-lightning<2",
+  "taming",
+  "torch",
+  "torchvision",
+  "tqdm",
+  "transformers<4.39",
+]
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[tool.uv.sources]
+clip = { git = "https://github.com/openai/CLIP.git" }
+torch = { index = "pytorch-cu116" }
+torchvision = { index = "pytorch-cu116" }
+taming = { git = "https://github.com/jlds15/taming" }
+
+[[tool.uv.index]]
+name = "pytorch-cu116"
+url = "https://download.pytorch.org/whl/cu116"
+explicit = true
